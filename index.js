@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => {
    friends.push(JSON.parse(friend));
 
   });
-  req.pipe(res);
+  req.pipe(res);//don't need to call req.end here because response ends when request ends
  } else if (req.method === 'GET' && items[1] === 'friends') {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
